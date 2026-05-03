@@ -7,8 +7,8 @@ import ProjectCard from "./ProjectCard";
 
 export default function Portfolio() {
   const t = useTranslations("portfolio");
-  const messages = useMessages();
-  const catLabels = (messages as any).portfolio.categories as Record<string, string>;
+  const messages = useMessages() as unknown as { portfolio: { categories: Record<string, string> } };
+  const catLabels = messages.portfolio.categories;
 
   const [active, setActive] = useState<ProjectCategory | "all">("all");
   const filtered = active === "all" ? PROJECTS : PROJECTS.filter((p) => p.category === active);

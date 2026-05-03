@@ -23,23 +23,25 @@ export function useAccent() {
   return useContext(Ctx);
 }
 
+function applyAccent(v: string) {
+  document.documentElement.style.setProperty("--accent", v);
+  const r = parseInt(v.slice(1, 3), 16);
+  const g = parseInt(v.slice(3, 5), 16);
+  const b = parseInt(v.slice(5, 7), 16);
+  document.documentElement.style.setProperty("--accent-rgb", `${r}, ${g}, ${b}`);
+}
+
 export default function AccentProvider({ children }: { children: React.ReactNode }) {
   const [accent, setAccentState] = useState(DEFAULT_ACCENT);
 
   const setAccent = (v: string) => {
     setAccentState(v);
-    document.documentElement.style.setProperty("--accent", v);
-    // Update RGB components for rgba() usage
-    const r = parseInt(v.slice(1, 3), 16);
-    const g = parseInt(v.slice(3, 5), 16);
-    const b = parseInt(v.slice(5, 7), 16);
-    document.documentElement.style.setProperty("--accent-rgb", `${r}, ${g}, ${b}`);
+    applyAccent(v);
   };
 
-  // Apply default on mount
+  // Apply default CSS variables on first mount
   useEffect(() => {
-    setAccent(DEFAULT_ACCENT);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    applyAccent(DEFAULT_ACCENT);
   }, []);
 
   return <Ctx.Provider value={{ accent, setAccent }}>{children}</Ctx.Provider>;

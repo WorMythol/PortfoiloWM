@@ -4,8 +4,8 @@ import { useTranslations, useMessages } from "next-intl";
 
 export default function Hero() {
   const t = useTranslations("hero");
-  const messages = useMessages();
-  const disciplines = (messages as any).hero.disciplines as string[];
+  const messages = useMessages() as unknown as { hero: { disciplines: string[] } };
+  const disciplines = messages.hero.disciplines;
 
   return (
     <section id="hero" style={{ minHeight: "100vh", background: "#0a0a0a", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 40px 80px", position: "relative", overflow: "hidden" }}>

@@ -4,8 +4,8 @@ import { useTranslations, useMessages } from "next-intl";
 
 export default function Testimonials() {
   const t = useTranslations("testimonials");
-  const messages = useMessages();
-  const items = (messages as any).testimonials.items as Array<{ quote: string; author: string; role: string }>;
+  const messages = useMessages() as unknown as { testimonials: { items: Array<{ quote: string; author: string; role: string }> } };
+  const items = messages.testimonials.items;
 
   return (
     <section style={{ padding: "120px 40px", background: "#0a0a0a", borderTop: "4px solid #f5f1e8" }}>

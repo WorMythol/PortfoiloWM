@@ -5,8 +5,8 @@ import { SKILLS, TOOLS } from "@/lib/data";
 
 export default function About() {
   const t = useTranslations("about");
-  const messages = useMessages();
-  const stats = (messages as any).about.stats as Array<{ n: string; l: string }>;
+  const messages = useMessages() as unknown as { about: { stats: Array<{ n: string; l: string }> } };
+  const stats = messages.about.stats;
 
   return (
     <section id="about" style={{ padding: "120px 40px", background: "#0a0a0a", borderTop: "4px solid #f5f1e8" }}>

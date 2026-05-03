@@ -4,8 +4,8 @@ import { useTranslations, useMessages } from "next-intl";
 
 export default function Process() {
   const t = useTranslations("process");
-  const messages = useMessages();
-  const steps = (messages as any).process.steps as Array<{ n: string; title: string; description: string }>;
+  const messages = useMessages() as unknown as { process: { steps: Array<{ n: string; title: string; description: string }> } };
+  const steps = messages.process.steps;
 
   return (
     <section id="process" style={{ padding: "120px 40px", background: "#0a0a0a", borderTop: "4px solid #f5f1e8" }}>

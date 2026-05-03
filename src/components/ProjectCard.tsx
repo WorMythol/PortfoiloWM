@@ -49,9 +49,8 @@ function Thumbnail({ project, hovered }: { project: Project; hovered: boolean })
 
 export default function ProjectCard({ project, index }: Props) {
   const t = useTranslations("portfolio");
-  const messages = useMessages();
-  const projectDescs = (messages as Record<string, unknown>).projects as Record<string, string> | undefined;
-  const description = projectDescs?.[project.id] ?? "";
+  const messages = useMessages() as unknown as { projects: Record<string, string> };
+  const description = messages.projects?.[project.id] ?? "";
 
   const [modal, setModal] = useState(false);
   const [hovered, setHovered] = useState(false);

@@ -1,9 +1,9 @@
-// Patch broken localStorage polyfill in preview environments
-// (e.g. Claude preview injects localStorage into Node.js without proper methods)
+// Patch broken localStorage polyfill injected by some preview environments
+// (e.g. Claude Code preview passes --localstorage-file to Node.js, creating a
+//  stub object that lacks standard Storage methods, crashing Next.js dev overlay)
 export async function register() {
   if (typeof localStorage !== "undefined" && typeof localStorage.getItem !== "function") {
-    // Replace with a no-op storage so Next.js dev overlay doesn't crash
-    (globalThis as any).localStorage = {
+    const noopStorage: Storage = {
       getItem: () => null,
       setItem: () => undefined,
       removeItem: () => undefined,
@@ -11,5 +11,6 @@ export async function register() {
       key: () => null,
       length: 0,
     };
+    (globalThis as typeof globalThis & { localStorage: Storage }).localStorage = noopStorage;
   }
 }
