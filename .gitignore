@@ -40,3 +40,17 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 package-lock.json
+
+# local dev / tools
+.claude/
+README.md
+
+# design references (local only)
+пример дизайна/
+
+# default Next.js public assets
+public/file.svg
+public/globe.svg
+public/next.svg
+public/vercel.svg
+public/window.svg
