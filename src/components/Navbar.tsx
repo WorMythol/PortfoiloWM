@@ -84,7 +84,13 @@ export default function Navbar() {
         </div>
 
         {/* Mobile burger */}
-        <button onClick={() => setOpen(!open)} className="md:hidden" style={{ color: "#f5f1e8", background: "none", border: "none", padding: 4 }}>
+        <button
+          onClick={() => setOpen(!open)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          className="md:hidden"
+          style={{ color: "#f5f1e8", background: "none", border: "none", padding: 4, cursor: "none" }}
+        >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>

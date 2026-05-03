@@ -110,7 +110,7 @@ export default function Hero() {
         style={{ position: "absolute", bottom: 40, right: 40, fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#8a857a", writingMode: "vertical-rl", display: "flex", alignItems: "center", gap: 10 }}
       >
         <motion.span animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}>↓</motion.span>
-        Scroll
+        {t("scroll")}
       </motion.div>
     </section>
   );

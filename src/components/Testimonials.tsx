@@ -19,7 +19,7 @@ export default function Testimonials() {
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 2 }}>
           {items.map((q, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}
+            <motion.div key={q.author} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}
               style={{ border: "2px solid #f5f1e8", padding: "36px 32px", display: "flex", flexDirection: "column", justifyContent: "space-between", gap: 28, background: "#0a0a0a" }}>
               <div style={{ fontFamily: "var(--font-space-grotesk), sans-serif", fontSize: 120, lineHeight: 0.6, color: "var(--accent)", fontWeight: 700, height: 50, overflow: "visible", userSelect: "none" }}>
                 &ldquo;

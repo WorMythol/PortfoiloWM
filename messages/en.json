@@ -12,7 +12,8 @@
     "teamValue": "WorMythol · 6+ people",
     "disciplines": ["Animation", "3D", "Design", "Web", "Bots"],
     "cta_primary": "View Work →",
-    "cta_secondary": "Get in Touch"
+    "cta_secondary": "Get in Touch",
+    "scroll": "Scroll"
   },
   "about": {
     "eyebrow": "§ 01 — About Us",
@@ -45,6 +46,25 @@
       "branding":   "Branding",
       "bots":       "Bots"
     }
+  },
+  "projects": {
+    "mc-1":  "Combat scene with custom shaders and VFX. 60-second render in Blender.",
+    "mc-2":  "Logo reveal with particles and camera fly-through a biome. 12s motion piece.",
+    "mc-3":  "Atmospheric RPG server trailer; ~36h render time, 1920×1080 / 60fps.",
+    "bb-1":  "Animated bird with custom textures for a resource pack. Detailed rig.",
+    "bb-2":  "Custom bison mob with walk and attack animations. 24-bone rig.",
+    "bb-3":  "Full armor set with oxidation effect. 4 pieces.",
+    "d-1":   "Banners, emotes and full thumbnail pack for a Minecraft YouTube channel.",
+    "d-2":   "Full Discord art package: banners, icons and custom emote set.",
+    "s-1":   "30 custom Twitch/Discord emotes with a unified style and colour palette.",
+    "s-2":   "Cute pixel-art sticker pack inspired by Minecraft characters.",
+    "w-1":   "Landing page for a Minecraft server with live player count. Next.js + Tailwind.",
+    "w-2":   "Minimal portfolio for a content creator with video showcase and animations.",
+    "br-1":  "Full brand identity for a game-dev studio — logo, palette, typography, 24-page guideline.",
+    "br-2":  "Streaming overlays and full brand book for a content creator.",
+    "bot-1": "Discord bot: moderation, level-based roles, Minecraft account linking. Node.js + TS.",
+    "bot-2": "Telegram bot: announcements, polls, mini-games and internal currency shop. Aiogram.",
+    "bot-3": "Bidirectional bridge DC ↔ TG ↔ MC: chat, player stats, server events."
   },
   "testimonials": {
     "eyebrow": "§ 11 — Voices",

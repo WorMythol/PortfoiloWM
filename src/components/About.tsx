@@ -54,7 +54,7 @@ export default function About() {
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
           style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", borderTop: "4px solid #f5f1e8", borderBottom: "4px solid #f5f1e8", marginBottom: 80 }}>
           {stats.map((s, i) => (
-            <div key={i} style={{ padding: "48px 32px", borderRight: i < stats.length - 1 ? "2px solid #f5f1e8" : "none" }}>
+            <div key={s.n} style={{ padding: "48px 32px", borderRight: i < stats.length - 1 ? "2px solid #f5f1e8" : "none" }}>
               <div style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: "#8a857a", marginBottom: 12 }}>0{i + 1}</div>
               <div style={{ fontFamily: "var(--font-space-grotesk), sans-serif", fontSize: "clamp(48px, 8vw, 120px)", fontWeight: 700, lineHeight: 0.85, letterSpacing: "-0.04em", color: i === 0 ? "var(--accent)" : "#f5f1e8", marginBottom: 16 }}>{s.n}</div>
               <div style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 12, letterSpacing: "0.12em", textTransform: "uppercase", color: "#f5f1e8", fontWeight: 600 }}>{s.l}</div>
