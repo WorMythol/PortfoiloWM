@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Портфолио — демо-дек</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #0a0a0a;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    overflow: hidden;
+  }
+  /* deck-stage shell */
+  deck-stage section {
+    background: #0a0a0a;
+  }
+</style>
+</head>
+<body>
+
+<!-- Speaker notes -->
+<script type="application/json" id="speaker-notes">
+[
+  "Cover слайд — короткое приветствие, представляем команду WorMythol и говорим что покажем 15 слайдов с работами по 7 направлениям.",
+  "Обо нас: WorMythol — команда из 6+ человек, каждый закрывает свою дисциплину. Не универсалы-одиночки.",
+  "Пять дисциплин — анимация, 3D, графика, веб, боты. Подчеркни: одна команда закрывает все этапы.",
+  "Стек инструментов. Можешь не зачитывать — пробегись по топ-3 (Blockbench 95, Tailwind 92, Figma 90).",
+  "Раздел переходит к работам. Семь категорий — дальше пройдём по каждой.",
+  "Minecraft-анимации. Расскажи про Epic PvP — он будет deep-dive позже.",
+  "3D и Blockbench. Покажи разнообразие: оружие, мобы, броня.",
+  "Графика и стикерпаки — упомяни единый стиль в эмоутах.",
+  "Сайты и брендинг — Next.js + полный фирстиль.",
+  "Discord и Telegram боты. Расскажи про мост между серверами и сообществом — это редкость на рынке.",
+  "Deep dive по Epic PvP Montage. Пройдись по 6 этапам процесса — это самое интересное для клиента.",
+  "Цифры. Подчеркни 98% повторных заказов — это про качество.",
+  "Отзывы. Можешь зачитать одну цитату — выбери первую про эстетику сервера.",
+  "Как работаем — 4 шага, прозрачный процесс, команда работает параллельно.",
+  "Контакты. CTA: пиши в Telegram или Discord, отвечу в течение суток."
+]
+</script>
+
+<!-- Tweakable defaults -->
+<script>
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "theme": "ink",
+    "accent": "#ff5b1f"
+  }/*EDITMODE-END*/;
+  window.__TWEAK_DEFAULTS = TWEAK_DEFAULTS;
+</script>
+
+<!-- React + Babel -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<!-- Deck stage -->
+<script src="deck-stage.js"></script>
+
+<!-- Slides + Tweaks -->
+<script type="text/babel" src="slides.jsx"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+
+<!-- Mount -->
+<deck-stage width="1920" height="1080" id="stage"></deck-stage>
+
+<script type="text/babel" data-presets="env,react">
+(function() {
+  const stage = document.getElementById("stage");
+
+  // Build sections
+  const sections = SLIDES.map((s, i) => {
+    const sec = document.createElement("section");
+    sec.dataset.label = s.label;
+    sec.dataset.idx = i;
+    stage.appendChild(sec);
+    return sec;
+  });
+
+  // Mount React tree on a top-level wrapper that re-renders on tweak change
+  function App() {
+    const defaults = window.__TWEAK_DEFAULTS;
+    const [tweaks, setTweak] = useTweaks(defaults);
+
+    // Re-render slide content into each <section>
+    React.useEffect(() => {
+      SLIDES.forEach((s, i) => {
+        const root = sections[i].__root || (sections[i].__root = ReactDOM.createRoot(sections[i]));
+        root.render(<s.Comp theme={tweaks.theme} accent={tweaks.accent} />);
+      });
+    }, [tweaks.theme, tweaks.accent]);
+
+    const ACCENTS = [
+      { value: "#ff5b1f", label: "Orange" },
+      { value: "#ffd60a", label: "Yellow" },
+      { value: "#7cff4e", label: "Acid" },
+      { value: "#5ad7ff", label: "Cyan" },
+      { value: "#ff4dd2", label: "Magenta" },
+      { value: "#ffffff", label: "Mono" },
+    ];
+
+    return (
+      <TweaksPanel title="Tweaks">
+        <TweakSection title="Тема">
+          <TweakRadio
+            label="Палитра"
+            value={tweaks.theme}
+            options={[
+              { value: "ink", label: "INK · тёмная" },
+              { value: "paper", label: "PAPER · светлая" },
+            ]}
+            onChange={(v) => setTweak("theme", v)}
+          />
+        </TweakSection>
+        <TweakSection title="Акцентный цвет">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 6 }}>
+            {ACCENTS.map(a => (
+              <button
+                key={a.value}
+                onClick={() => setTweak("accent", a.value)}
+                style={{
+                  padding: "10px 8px",
+                  border: tweaks.accent === a.value ? "2px solid #fff" : "1px solid #444",
+                  background: a.value,
+                  color: a.value === "#ffffff" || a.value === "#ffd60a" || a.value === "#7cff4e" || a.value === "#5ad7ff" ? "#0a0a0a" : "#fff",
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontSize: 11,
+                  letterSpacing: 1,
+                  textTransform: "uppercase",
+                  cursor: "pointer",
+                  fontWeight: 700,
+                }}
+              >{a.label}</button>
+            ))}
+          </div>
+          <TweakColor
+            label="Свой цвет"
+            value={tweaks.accent}
+            onChange={(v) => setTweak("accent", v)}
+          />
+        </TweakSection>
+      </TweaksPanel>
+    );
+  }
+
+  // Render the controller (which side-effects into each section)
+  const controller = document.createElement("div");
+  controller.style.display = "none";
+  document.body.appendChild(controller);
+  ReactDOM.createRoot(controller).render(<App />);
+})();
+</script>
+
+</body>
+</html>

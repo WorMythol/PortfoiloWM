@@ -1,0 +1,121 @@
+{
+  "nav": {
+    "work": "Work",
+    "about": "About",
+    "process": "Process",
+    "contact": "Contact",
+    "hire": "Hire Us"
+  },
+  "hero": {
+    "badge": "Team Portfolio · Volume I",
+    "teamLabel": "Team",
+    "teamValue": "WorMythol · 6+ people",
+    "disciplines": ["Animation", "3D", "Design", "Web", "Bots"],
+    "cta_primary": "View Work →",
+    "cta_secondary": "Get in Touch"
+  },
+  "about": {
+    "eyebrow": "§ 01 — About Us",
+    "headline1": "We make what",
+    "headline2": "we play.",
+    "bio": "WorMythol is a team of 6+ people. Each member covers their own discipline: animation, 3D, design, web, branding. Not generalists — specialists under one roof, working on projects together.",
+    "teamPhotoLabel": "team-photo.jpg",
+    "toolsLabel": "Tools",
+    "skillsEyebrow": "§ 03 — Stack",
+    "statsEyebrow": "By the Numbers",
+    "stats": [
+      { "n": "2.4M", "l": "video views" },
+      { "n": "40+",  "l": "projects delivered" },
+      { "n": "6+",   "l": "team members" },
+      { "n": "98%",  "l": "repeat clients" }
+    ]
+  },
+  "portfolio": {
+    "eyebrow": "§ 04 — Work",
+    "headline1": "Seven",
+    "headline2": "categories.",
+    "all": "All Work",
+    "watchVideo": "▶ Watch Video",
+    "categories": {
+      "minecraft":  "Minecraft Animations",
+      "blockbench": "3D / Blockbench",
+      "design":     "Graphic Design",
+      "stickers":   "Sticker Packs",
+      "websites":   "Websites",
+      "branding":   "Branding",
+      "bots":       "Bots"
+    }
+  },
+  "testimonials": {
+    "eyebrow": "§ 11 — Voices",
+    "headline1": "What they",
+    "headline2": "say.",
+    "items": [
+      {
+        "quote": "Made the intro in a week — it captured the server's vibe better than we understood it ourselves.",
+        "author": "MC Server Admin",
+        "role": "FreKuro"
+      },
+      {
+        "quote": "One team covers animations, models, and branding. That's rare and incredibly convenient.",
+        "author": "Producer",
+        "role": "Indie Studio"
+      },
+      {
+        "quote": "The sticker pack still lives in our Discord — two years later, it's still instantly recognizable.",
+        "author": "Community Manager",
+        "role": "Twitch Channel"
+      }
+    ]
+  },
+  "process": {
+    "eyebrow": "§ 12 — How to Work With Us",
+    "headline1": "Process —",
+    "headline2": "4 steps.",
+    "steps": [
+      {
+        "n": "01",
+        "title": "Inquiry",
+        "description": "Message us on Telegram or Discord — we discuss the idea, scope, and timeline. No lengthy forms."
+      },
+      {
+        "n": "02",
+        "title": "Brief",
+        "description": "We build the spec, estimate the cost, lock in milestones. Usually 1–2 days."
+      },
+      {
+        "n": "03",
+        "title": "Production",
+        "description": "The team works in parallel. Revisions are included at key stages."
+      },
+      {
+        "n": "04",
+        "title": "Delivery",
+        "description": "Final files + source files + usage rights. Everything clean."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "§ 13 — Final",
+    "headline1": "Let's build",
+    "headline2": "a project?",
+    "bio": "If it resonates — reach out on any channel. I'll respond within 24 hours.",
+    "nameLabel": "Name",
+    "namePlaceholder": "Your name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "you@example.com",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Tell me about the project...",
+    "submit": "Write to Us →",
+    "sending": "Sending...",
+    "sent": "✓ Message Sent",
+    "available": "Open for new projects"
+  },
+  "footer": {
+    "copyright": "Crafted with passion & pixels",
+    "toTop": "Back to top ↑"
+  },
+  "accent": {
+    "label": "Accent"
+  }
+}
